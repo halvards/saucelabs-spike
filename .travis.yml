@@ -1,0 +1,14 @@
+language: node_js
+notifications:
+  email: false
+sudo: false
+cache:
+  directories:
+  - node_modules
+deploy:
+  provider: heroku
+  app: saucelabs-spike
+  api_key:
+    secure: wf3TJuAiVult32mjiIsaAPzh3FOUF5avk5d2ByK/l8LChLQt5KcmP7aTLVDDeYb4y368xXoNDtKBG/jb3nSbeuUsmbDdRFLOWibIgp0QVKz0AYgnUdCyXC/t5NCtKcmSVtULL4jiJYy/CqLBtOGBp1F7HKhHcvnSYIq7pCsMLE7sqlqN+EgGrIfVQL7lzi88b5LMnino6YGD/oht8OKYGufO9pvaJBCtCbT7dnzUQnA0TznPk+mOKqyV5ilFUtpZijsFFVpT+yxoYq6VjegJDiuF6Fnl8tKvdnbxwbrOUjxrmBegggnB56iEdVHA8/b0uD/wFPaNaXybju8Ebr32bJgKm2fTM3nL0MNZbzNU3TGm3QEWJ/SQnl87MOCdUS8NSY0lyRyEoxol8BNGkg7ah7HZZ9gRCYMng5Xmo8MUmT/XLsfV+uyH5m04lSUcdFoJv7osBTjmKlN1UZGVB3Uar/ncfQJre8wdT/4qiRLcNhpl/+AnJiuT3ZVICfr09X9I9Tn3LStGptjKYju172gGnVnodhowfGbhKgRRWT8jdYwHUKW6vdWNpIkPDNeYE+xpxSwIJ7FqUQfw7ixiWFpwTxc+eK2Q8D5clns1hrHdZh3XAkPqC0BumGljZIjyanwAzth+JMGCQMR9BluRsTlFzGhM8PNO2RhJoX5toNMRvs4=
+  on:
+    repo: halvards/saucelabs-spike
