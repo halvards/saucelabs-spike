@@ -6,14 +6,19 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "tape test/*.js"
+    "test": "tape test/*.js",
+    "dev": "supervisor --watch '.,views' --ignore 'test,public' --extensions 'js,mustache' node server.js"
   },
   "author": "Halvard Skogsrud",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.13.3"
+    "body-parser": "^1.14.2",
+    "consolidate": "^0.13.1",
+    "express": "^4.13.3",
+    "hogan.js": "^3.0.2"
   },
   "devDependencies": {
+    "supervisor": "^0.9.1",
     "tape": "^4.4.0",
     "webdriverio": "^3.4.0"
   }
