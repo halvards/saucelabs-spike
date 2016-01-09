@@ -1,0 +1,20 @@
+{
+  "private": true,
+  "name": "saucelabs-spike",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "tape test/*.js"
+  },
+  "author": "Halvard Skogsrud",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.13.3"
+  },
+  "devDependencies": {
+    "tape": "^4.4.0",
+    "webdriverio": "^3.4.0"
+  }
+}
