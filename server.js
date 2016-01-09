@@ -8,9 +8,19 @@ const qs = require('qs');
 
 const app = express();
 
+app.set('trust proxy', true);
+app.set('x-powered-by', false);
+
 app.set('view engine', 'mustache');
 app.engine('mustache', consolidate.hogan);
 app.set('views', path.join(__dirname, 'views'));
+
+app.use((req, res, next) => {
+  if (req.headers['x-forwarded-proto'] && !req.secure) {
+    return res.redirect(['https://', req.hostname, req.url].join(''));
+  }
+  next();
+});
 
 app.use(bodyParser.urlencoded({ extended: true })); // parse application/x-www-form-urlencoded
 app.use(bodyParser.json()); // parse application/json
@@ -35,5 +45,5 @@ app.get('/', (req, res) => {
 
 const server = app.listen(process.env.PORT || 3000, () => {
   const port = server.address().port;
-  console.log(`App listening on port ${port}`);
+  console.log(`Listening on port ${port}`);
 });
