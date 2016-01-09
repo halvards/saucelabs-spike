@@ -11,13 +11,20 @@
 <h1>Send a message</h1>
 
 <form action="/" method="post">
-  <label for="message">Message <input type="text" name="message" /></label>
+  <label for="message">Message <input type="text" name="message" id="messageInput" /></label>
   <input type="submit" value="Submit" />
 </form>
 
 {{#message}}
-<p>{{message}}</p>
+<p id="message">Your message was: {{message}}</p>
 {{/message}}
 
+<p class="delayed" style="display: none;">This text appears after a delay.</p>
+
+<script>
+window.setTimeout(function() {
+  document.querySelector('.delayed').style.display = '';
+}, 1000);
+</script>
 </body>
 </html>
