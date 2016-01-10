@@ -1,6 +1,6 @@
 language: node_js
 sudo: false
-build:
+script:
   - npm test
   - npm run selenium-install
   - npm run selenium-start
