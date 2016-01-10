@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node server.js",
     "test": "tape test/unit/*.js",
-    "uitest": "npm run selenium-install && tape test/ui/*.js",
+    "uitest": "PORT=3001 node server.js & PID=$! ; sleep 1 ; PORT=3001 tape test/ui/*.js ; RESULT=$? ; kill $PID ; exit $RESULT",
     "dev": "supervisor --watch '.,views' --ignore 'test,public' --extensions 'js,mustache' node server.js",
     "selenium-install": "selenium-standalone install --version=2.48.2"
   },
