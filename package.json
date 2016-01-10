@@ -21,7 +21,7 @@
     "qs": "^4.0.0"
   },
   "devDependencies": {
-    "phantomjs2": "^2.0.2",
+    "phantomjs": "^1.9.19",
     "selenium-standalone": "^4.8.0",
     "supervisor": "^0.9.1",
     "tape": "^4.4.0",
