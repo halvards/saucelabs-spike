@@ -1,7 +1,12 @@
 language: node_js
+sudo: false
+build:
+  - npm test
+  - npm run selenium-install
+  - npm run selenium-start
+  - npm run uitest
 notifications:
   email: false
-sudo: false
 cache:
   directories:
   - node_modules
