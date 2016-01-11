@@ -1,7 +1,10 @@
 'use strict';
 
 const test = require('tape');
-const client = require('./client')();
+const path = require('path');
+const client = require('./client')({
+  testSuiteName: path.basename(__filename)
+});
 
 test('should visit application', (assert) => {
   assert.plan(1);

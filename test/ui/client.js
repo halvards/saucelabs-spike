@@ -1,7 +1,5 @@
 'use strict';
 
-const path = require('path');
-
 module.exports = (options) => {
   options = options || {};
 
@@ -14,7 +12,7 @@ module.exports = (options) => {
       browserName: process.env.BROWSER || 'chrome',
       'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER || process.env.SAUCE_USERNAME,
       build: process.env.TRAVIS_BUILD_NUMBER || new Date().toISOString(),
-      name: path.basename(__filename)
+      name: options.testSuiteName || 'Default'
     }
   });
 
