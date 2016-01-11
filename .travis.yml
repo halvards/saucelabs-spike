@@ -5,13 +5,18 @@ addons:
     username: halvards
     access_key:
       secure: aWQ/vPYY9ZHgS1VPB48AC8gLtQEMmOw5NbTwaWkVD5p895Ttj5Q7WoXgoMjMwjCN0cs7g3AVneK7rSqDkApdGXoTCvv2XwNioz9Lv7NsmY1Ub3P4lSXIvL6VAKTTWCkepcg9jY+yRVMGqZa5QyWGZK/4b75fKxUn0MUkVvQwEkedD90N5g4rdHffHf/1ucOc+Dq2g6nFnByidUzzw9Ahl03IzGgYAW0lm1nLsFIxCWAVEApvX2Cflw/sF3yIWi7mfYOOhGnH3KY4YYPsMHaLNSvnbqOYQa3VSSaVS1xnHSldI88LCsUZ9YIwB7E7e8AlvK/eLe6wc0F3D0IkMwAPY2Dsu15fYvkYS9SAO8pnXHuGUZYyx7Yq6Jb17dLt63q6u7fnUwPWM+lpoez/S/KUP8A0HR4qtpGHMvzEtj8Xf/ZwFZ6kf3kApnap3L6TxvvsKQTTr4rfBj1LVSr3KAWkdo/cLagKMJ12jJRrW4yD2PMtxzjblAZRHCIcAxDaI4ctvPomnDyaT9Nit/XBnz4xSsL9Q+0MXmzz1UDz0Q0SQlZ0Q+AjS3xBW4/2aVVVH95A3ZwBBDA06hQdVz5Twko0zT0MXThNENpXOIrZUhW2vuJ1NXwBQexfmPja714hvpeWkJtjDp4jcG7+NhKxuzQmzkKOjSuiCt0kKZH/zdH+a74=
+env:
+  - BROWSER=chrome
+  - BROWSER=firefox
+  - BROWSER='internet explorer'
+  - BROWSER=safari
 script:
-- npm test
-- npm run selenium-install
-- npm run selenium-start &
-- sleep 1
-- BROWSER=phantomjs npm run uitest
-- npm run saucetest
+  - npm test
+  - npm run selenium-install
+  - npm run selenium-start &
+  - sleep 1
+  - BROWSER=phantomjs npm run uitest
+  - npm run saucetest
 notifications:
   email: false
 cache:
