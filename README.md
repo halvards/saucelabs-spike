@@ -69,10 +69,10 @@ Next, you need to start Sauce Connect (in another terminal tab/window):
 
 Then, to run the Selenium tests on Sauce Labs using Google Chrome:
 
-    npm run saucetest
+    USE_SAUCE=true npm run uitest
 
-This will start the application automatically on localhost port 3002 and then run the tests from Sauce Labs.
+This will start the application automatically on localhost port 3001 and then run the tests from Sauce Labs.
 
 Use another web browser for testing by supplying an environment variable:
 
-    BROWSER=firefox npm run saucetest
+    USE_SAUCE=true BROWSER=firefox npm run uitest

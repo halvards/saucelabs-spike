@@ -5,23 +5,22 @@ addons:
     username: halvards
     access_key:
       secure: aWQ/vPYY9ZHgS1VPB48AC8gLtQEMmOw5NbTwaWkVD5p895Ttj5Q7WoXgoMjMwjCN0cs7g3AVneK7rSqDkApdGXoTCvv2XwNioz9Lv7NsmY1Ub3P4lSXIvL6VAKTTWCkepcg9jY+yRVMGqZa5QyWGZK/4b75fKxUn0MUkVvQwEkedD90N5g4rdHffHf/1ucOc+Dq2g6nFnByidUzzw9Ahl03IzGgYAW0lm1nLsFIxCWAVEApvX2Cflw/sF3yIWi7mfYOOhGnH3KY4YYPsMHaLNSvnbqOYQa3VSSaVS1xnHSldI88LCsUZ9YIwB7E7e8AlvK/eLe6wc0F3D0IkMwAPY2Dsu15fYvkYS9SAO8pnXHuGUZYyx7Yq6Jb17dLt63q6u7fnUwPWM+lpoez/S/KUP8A0HR4qtpGHMvzEtj8Xf/ZwFZ6kf3kApnap3L6TxvvsKQTTr4rfBj1LVSr3KAWkdo/cLagKMJ12jJRrW4yD2PMtxzjblAZRHCIcAxDaI4ctvPomnDyaT9Nit/XBnz4xSsL9Q+0MXmzz1UDz0Q0SQlZ0Q+AjS3xBW4/2aVVVH95A3ZwBBDA06hQdVz5Twko0zT0MXThNENpXOIrZUhW2vuJ1NXwBQexfmPja714hvpeWkJtjDp4jcG7+NhKxuzQmzkKOjSuiCt0kKZH/zdH+a74=
-env:
-  - BROWSER=chrome
-  - BROWSER=firefox
-  - BROWSER='internet explorer'
-  - BROWSER=safari
 script:
   - npm test
   - npm run selenium-install
   - npm run selenium-start &
   - sleep 1
   - BROWSER=phantomjs npm run uitest
-  - npm run saucetest
+  - USE_SAUCE=true BROWSER=chrome npm run uitest
+  - USE_SAUCE=true BROWSER=firefox npm run uitest
+  - USE_SAUCE=true BROWSER='internet explorer' BROWSER_VERSION=11 npm run uitest
+  - USE_SAUCE=true BROWSER='internet explorer' BROWSER_VERSION=9 npm run uitest
+  - USE_SAUCE=true BROWSER=safari PLATFORM=MAC npm run uitest
 notifications:
   email: false
 cache:
   directories:
-  - node_modules
+    - node_modules
 deploy:
   provider: heroku
   app: saucelabs-spike
@@ -29,4 +28,3 @@ deploy:
     secure: wf3TJuAiVult32mjiIsaAPzh3FOUF5avk5d2ByK/l8LChLQt5KcmP7aTLVDDeYb4y368xXoNDtKBG/jb3nSbeuUsmbDdRFLOWibIgp0QVKz0AYgnUdCyXC/t5NCtKcmSVtULL4jiJYy/CqLBtOGBp1F7HKhHcvnSYIq7pCsMLE7sqlqN+EgGrIfVQL7lzi88b5LMnino6YGD/oht8OKYGufO9pvaJBCtCbT7dnzUQnA0TznPk+mOKqyV5ilFUtpZijsFFVpT+yxoYq6VjegJDiuF6Fnl8tKvdnbxwbrOUjxrmBegggnB56iEdVHA8/b0uD/wFPaNaXybju8Ebr32bJgKm2fTM3nL0MNZbzNU3TGm3QEWJ/SQnl87MOCdUS8NSY0lyRyEoxol8BNGkg7ah7HZZ9gRCYMng5Xmo8MUmT/XLsfV+uyH5m04lSUcdFoJv7osBTjmKlN1UZGVB3Uar/ncfQJre8wdT/4qiRLcNhpl/+AnJiuT3ZVICfr09X9I9Tn3LStGptjKYju172gGnVnodhowfGbhKgRRWT8jdYwHUKW6vdWNpIkPDNeYE+xpxSwIJ7FqUQfw7ixiWFpwTxc+eK2Q8D5clns1hrHdZh3XAkPqC0BumGljZIjyanwAzth+JMGCQMR9BluRsTlFzGhM8PNO2RhJoX5toNMRvs4=
   on:
     repo: halvards/saucelabs-spike
-    condition: "$BROWSER = safari"
