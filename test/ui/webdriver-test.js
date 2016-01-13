@@ -15,5 +15,6 @@ test('should visit application', (assert) => {
       .then((title) => {
         assert.equal(title, 'saucelabs-spike');
       })
+      .saveScreenshot('snapshot.png')
       .end();
 });
